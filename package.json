@@ -1,0 +1,24 @@
+{
+  "name": "fit-mate",
+  "version": "1.0.0",
+  "description": "Fitness exercise tracker app displays you and your mates exercise progress, with leader board and profile",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevRayHE/fit-mate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevRayHE/fit-mate/issues"
+  },
+  "homepage": "https://github.com/DevRayHE/fit-mate#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1"
+  }
+}
