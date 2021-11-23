@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS fitmate_db;
+CREATE DATABASE fitmate_db;
