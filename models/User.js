@@ -6,7 +6,7 @@ class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
-}
+};
 
 // Define each table row attributes with data validation
 User.init(
