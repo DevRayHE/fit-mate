@@ -6,8 +6,9 @@ class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
-}
+};
 
+// Define each table row attributes with data validation
 User.init(
   {
     id: {
@@ -16,21 +17,33 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isAlpha: true,
+      },
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+      },
     },
     weight: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-    },
-    height: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
+      validate: {
+        isDecimal: true,
+      },
     },
     age: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        isInt: true,
+      },
     },
     email: {
       type: DataTypes.STRING,
@@ -51,6 +64,7 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
+        // hash user password data with salt for security 
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
