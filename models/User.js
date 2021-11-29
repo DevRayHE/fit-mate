@@ -20,16 +20,10 @@ User.init(
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlpha: true,
-      },
     },
     last_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlpha: true,
-      },
     },
     weight: {
       type: DataTypes.DECIMAL,

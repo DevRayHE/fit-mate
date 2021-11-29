@@ -12,7 +12,8 @@ exerciseRecord.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    duration: {
+    // minutes
+    duration: { 
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
