@@ -16,6 +16,7 @@ const hbs = exphbs.create({ helpers });
 
 // Set up sessions
 const sess = {
+
   secret: process.env.SESSION_SECRET,
   cookie: {},
   resave: false,
@@ -28,7 +29,10 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', exphbs({
+  layoutsDir: `${__dirname}/views/layouts`
+}));
+
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
