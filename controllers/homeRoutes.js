@@ -1,31 +1,21 @@
-const router = require("express").Router();
-const { Post, Comment, User } = require("../models");
+const router = require('express').Router();
+const { Exercise, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
-  Post.findAll({
+  Exercise.findAll({
     include: [User],
-  }).then((dbPostData) => {
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
-    res.render("all-posts", { posts });
-  });
-});
-
-router.get("/post/:id", async (req, res) => {
-  Post.findByPk(req.params.id, {
-    include: [User, { model: Comment, include: [User] }],
-  }).then((dbPostData) => {
-    if (dbPostData) {
-      const post = dbPostData.get({ plain: true });
-      res.render("single-post", { post });
-    } else {
-      res.status(404).end();
-    }
-  });
+  }).then((exerciseData) => {
+    const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
+    res.render("homepage", { exercises });
+  }).catch((err)=>{
+    res.status(500).json(err);
+  })
 });
 
 router.get("/login", async (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
+  if (req.session.logged_in) {
+    res.redirect("/dashboard");
     return;
   }
   res.render("login");
@@ -33,10 +23,11 @@ router.get("/login", async (req, res) => {
 
 router.get("/signup", async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   res.render("signup");
 });
+
 
 module.exports = router;
