@@ -34,6 +34,13 @@ exerciseRecord.init(
         key: 'id',
       },
     },
+    email: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'first_name',
+      },
+      },
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {

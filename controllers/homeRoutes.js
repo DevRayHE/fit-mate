@@ -1,32 +1,56 @@
 const router = require('express').Router();
-const { Exericse, User } = require('../models');
+
+const { Exercise, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-  try {
-    // Get all projects and JOIN with user data
-    const exerciseData = await Exericse.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['first_name'],
-        },
-      ],
-    });
-
-    // Serialize data so the template can read it
+router.get("/", async (req, res) => {
+  Exercise.findAll({
+    include: [User],
+  }).then((exerciseData) => {
     const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    // render login page for now, to be changed to 'homepage'.
-    res.render('login', { 
-      exercises, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
+    res.render("homepage", { exercises });
+  }).catch((err)=>{
     res.status(500).json(err);
-  }
+  })
 });
+
+router.get("/login", async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("login");
+});
+
+// Comment the below block of conflict for now.
+// const { Exericse, User } = require('../models');
+// const withAuth = require('../utils/auth');
+
+// router.get('/', async (req, res) => {
+//   try {
+//     // Get all projects and JOIN with user data
+//     const exerciseData = await Exericse.findAll({
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['first_name'],
+//         },
+//       ],
+//     });
+
+//     // Serialize data so the template can read it
+//     const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
+
+//     // Pass serialized data and session flag into template
+//     // render login page for now, to be changed to 'homepage'.
+//     res.render('login', { 
+//       exercises, 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // router.get('/project/:id', async (req, res) => {
 //   try {
@@ -70,14 +94,14 @@ router.get('/', async (req, res) => {
 //   }
 // });
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
+
+router.get("/signup", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
     return;
   }
-
-  res.render('login');
+  res.render("signup");
 });
+
 
 module.exports = router;
