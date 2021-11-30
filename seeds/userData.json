@@ -1,16 +1,25 @@
 [
   {
-    "username": "Ray",
+    "first_name": "Ray",
+    "last_name": "He",
+    "weight": "65",
+    "age": "28",
     "email": "Ray@hotmail.com",
     "password": "password321"
   },
   {
-    "username": "Kash",
+    "first_name": "Kash",
+    "last_name": "Patel",
+    "weight": "68",
+    "age": "25",
     "email": "Kash@gmail.com",
     "password": "password321"
   },
   {
-    "username": "Etta",
+    "first_name": "Etta",
+    "last_name": "Ho",
+    "weight": "52",
+    "age": "23",
     "email": "Etta@aol.com",
     "password": "password321"
   }

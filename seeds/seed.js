@@ -7,15 +7,20 @@ const exerciseRecordData = require('./exerciseRecordData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
+  // force: true drops table if exists
 
-  try {
-    await User.bulkCreate(userData, {
-      individualHooks: true,
-      returning: true,
-    });
-  } catch (err) {
-    console.log(err);
-  };
+  const users = await User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  for (const exercise of exerciseData) {
+    try { await Exercise.create({
+      ...exercise
+    }); } catch (err) {
+      console.log(err);
+    }
+  }
 
   try {
     await Exercise.bulkCreate(exerciseData);
