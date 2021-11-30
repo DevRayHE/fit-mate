@@ -47,7 +47,7 @@ exerciseRecord.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'exercise',
+    modelName: 'exerciseRecord',
   }
 );
 
