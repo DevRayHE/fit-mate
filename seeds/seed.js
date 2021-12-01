@@ -14,13 +14,13 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const exercise of exerciseData) {
-    try { await Exercise.create({
-      ...exercise
-    }); } catch (err) {
-      console.log(err);
-    }
-  }
+  // for (const exercise of exerciseData) {
+  //   try { await Exercise.create({
+  //     ...exercise
+  //   }); } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
   try {
     await Exercise.bulkCreate(exerciseData);

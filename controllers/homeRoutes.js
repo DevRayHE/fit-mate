@@ -5,10 +5,13 @@ const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
   Exercise.findAll({
-    include: [User],
+    include: [{ model: User },],
   }).then((exerciseData) => {
+    console.log(exerciseData);
     const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
-    res.render("homepage", { exercises });
+    console.log(exercises);
+    res.render("login", { exercises });
+    console.log(exercises);
   }).catch((err)=>{
     res.status(500).json(err);
   })
