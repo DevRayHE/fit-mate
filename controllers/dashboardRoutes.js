@@ -2,7 +2,8 @@ const router = require("express").Router();
 const { Exercise, ExerciseRecord, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/", withAuth, (req, res) => {
+// Render the main dashboard for the req.loggedin user
+router.get("/:id", withAuth, (req, res) => {
   ExerciseRecord.findAll({
     where: { user_id: req.session.user_id },
   })
@@ -19,14 +20,15 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
+// ?? Use this route to create new record or FE logic eventlistener on the + button on dashboard to render the new exercise record form ?? 
 router.get("/new", withAuth, (req, res) => {
   res.render("newrecord", {
     loggedIn: req.session.logged_in
   });
 });
 
-
-router.get("/edit/:id", withAuth, (req, res) => {
+// Route to edit profile with ID as paramater
+router.put("/edit/:id", withAuth, (req, res) => {
   ExerciseRecord.findByPk(req.params.id)
     .then(exerciseData => {
       if (exerciseData) {
