@@ -1,12 +1,12 @@
 const router = require('express').Router();
 
-const { Exercise, User } = require('../models');
+const { Exercise, ExerciseRecord, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Render home page
 router.get("/", async (req, res) => {
 
-  Exercise.findAll({
+  ExerciseRecord.findAll({
     include: [{ model: User },],
   }).then((exerciseData) => {
     console.log(exerciseData);

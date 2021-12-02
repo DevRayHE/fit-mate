@@ -97,7 +97,8 @@ router.post("/login", (req, res) => {
 			req.session.logged_in = true;
 			res.json({ user: userData, message: "You are now logged in" });
 		});
-
+	});
+});
 // Logout route
 router.post("/logout", (req, res) => {
 	console.log(req.session);
