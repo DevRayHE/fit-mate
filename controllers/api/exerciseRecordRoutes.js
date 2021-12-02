@@ -2,23 +2,6 @@ const router = require("express").Router();
 const { Exercise, ExerciseRecord, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-<<<<<<< Updated upstream
-router.post("/", withAuth, (req, res) => {
-    const body = req.body
-    ExerciseRecord.create({
-        ...body,
-        user_id: req.session.user_id
-    })
-    .then(
-        newRecord => {
-            res.json(newRecord)
-        }
-    ).catch((err)=>{
-        console.log(err)
-    })
-  });
-
-=======
 // Get all the exercise record
 router.get("/", withAuth, (req, res) => {
 	ExerciseRecord.findAll()
@@ -87,7 +70,6 @@ router.put("/:id", withAuth, (req, res) => {
 // 		}
 // 	});
 // });
->>>>>>> Stashed changes
 
 router.put("/:id", withAuth, (req, res) => {
    
