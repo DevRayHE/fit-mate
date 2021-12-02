@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class exerciseRecord extends Model {}
+class ExerciseRecord extends Model {}
 
 // Define each table row attributes with data validation
-exerciseRecord.init(
+ExerciseRecord.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -40,7 +40,9 @@ exerciseRecord.init(
     //     model: 'user',
     //     key: 'first_name',
     //   },
-    //   },
+    // },
+
+
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -58,4 +60,6 @@ exerciseRecord.init(
   }
 );
 
-module.exports = exerciseRecord;
+
+module.exports = ExerciseRecord;
+

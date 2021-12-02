@@ -1,3 +1,4 @@
+
 .homepagebg {
     background-image: url("homepage-bg.jpg");
     background-size:cover;
@@ -14,8 +15,32 @@
     background-color: #F8C471;
     border-radius: 25px;
 }    
+
 footer{
     bottom: 0;
     position: fixed;
     margin-top: -50%;
 }
+=======
+.homepagebg {
+	background-image: url("homepage-bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	width: 100vw;
+	height: 100vh;
+}
+
+.hptext {
+	position: fixed;
+	top: 45%;
+	left: 60%;
+	background-color: #f8c471;
+	border-radius: 25px;
+}
+
+/* footer {
+	bottom: 0;
+    position: fixed;
+    margin-top: 40px;
+} */
