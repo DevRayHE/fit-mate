@@ -41,6 +41,8 @@ ExerciseRecord.init(
     //     key: 'first_name',
     //   },
     // },
+
+
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {

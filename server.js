@@ -17,8 +17,8 @@ const hbs = exphbs.create({ helpers });
 // Set up sessions
 const sess = {
 
-  secret: process.env.SESSION_SECRET,
-  cookie: {
+  secret: "Super secret secret",
+   cookie: {
     // session expires in 30 minutes idle time
     maxAge: 30 * 60 * 1000,
   },

@@ -3,7 +3,9 @@ const router = require('express').Router();
 const { Exercise, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Render home page
 router.get("/", async (req, res) => {
+
   Exercise.findAll({
     include: [{ model: User },],
   }).then((exerciseData) => {
@@ -15,8 +17,10 @@ router.get("/", async (req, res) => {
   }).catch((err)=>{
     res.status(500).json(err);
   })
+
 });
 
+// Login
 router.get("/login", async (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
@@ -108,10 +112,10 @@ module.exports = router;
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
-<<<<<<< Updated upstream
+
 // });
 
-
+// route to handle signup
 router.get("/signup", async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
@@ -122,6 +126,4 @@ router.get("/signup", async (req, res) => {
 
 
 module.exports = router;
-=======
-// });
->>>>>>> Stashed changes
+
