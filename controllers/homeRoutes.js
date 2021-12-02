@@ -25,6 +25,19 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
+// route to handle signup
+router.get("/signup", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
+  const signUp = true;
+  res.render("userInfoForm", { signUp });
+});
+
+module.exports = router;
+
+
 // Comment the below block of conflict for now.
 // const { Exericse, User } = require('../models');
 // const withAuth = require('../utils/auth');
@@ -95,6 +108,7 @@ router.get("/login", async (req, res) => {
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
+<<<<<<< Updated upstream
 // });
 
 
@@ -108,3 +122,6 @@ router.get("/signup", async (req, res) => {
 
 
 module.exports = router;
+=======
+// });
+>>>>>>> Stashed changes

@@ -1,11 +1,15 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-const withAuth = require("../../Utils/auth");
+const withAuth = require("../../utils/auth");
 
 router.post("/", (req, res) => {
 	User.create({
 		email: req.body.email,
 		password: req.body.password,
+<<<<<<< Updated upstream
+=======
+		// firstName, lastName, weight, age
+>>>>>>> Stashed changes
 	}).then((userData) => {
 		req.session.save(() => {
 			req.session.user_id = userData.id;
@@ -15,6 +19,26 @@ router.post("/", (req, res) => {
 		});
 	});
 });
+<<<<<<< Updated upstream
+=======
+
+// Route to update user info
+router.put("/:id", (req, res) => {
+	User.update({
+		email: req.body.email,
+		// firstName, lastName weight, age
+	}).then((userData) => {
+		req.session.save(() => {
+			req.session.user_id = userData.id;
+			req.session.email = userData.email;
+			req.session.logged_in = true;
+			res.json(userData);
+		});
+	});
+});
+
+// Route to update user's password??
+>>>>>>> Stashed changes
 
 router.post("/login", (req, res) => {
 	User.findOne({
