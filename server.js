@@ -14,9 +14,14 @@ const PORT = process.env.PORT || 3001;
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
+// Set up sessions
 const sess = {
-  secret: "fitmate",
-  cookie: {},
+
+  secret: "Super secret secret",
+   cookie: {
+    // session expires in 30 minutes idle time
+    maxAge: 30 * 60 * 1000,
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
