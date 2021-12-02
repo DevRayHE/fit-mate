@@ -8,7 +8,13 @@ User.hasMany(ExerciseRecord, {
 });
 
 ExerciseRecord.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
+ExerciseRecord.belongsTo(Exercise, {
+  foreignKey: 'exercise_id',
+  onDelete: 'CASCADE'
 });
 
 Exercise.hasMany(ExerciseRecord, {
@@ -16,8 +22,6 @@ Exercise.hasMany(ExerciseRecord, {
   onDelete: 'CASCADE'
 });
 
-ExerciseRecord.belongsTo(ExerciseRecord, {
-  foreignKey: 'exercise_id'
-});
+
 
 module.exports = { User, Exercise, ExerciseRecord};
