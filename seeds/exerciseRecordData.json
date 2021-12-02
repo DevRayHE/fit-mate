@@ -1,20 +1,20 @@
 [
   {
-    "duration": "",
-    "calories_burnt": "",
-    "user_id": "",
-    "exercise_id": ""
+    "duration": "45",
+    "calories_burnt": "1234",
+    "user_id": "1",
+    "exercise_id": "6"
   },
   {
-    "duration": "",
-    "calories_burnt": "",
-    "user_id": "",
-    "exercise_id": ""
+    "duration": "15",
+    "calories_burnt": "4321",
+    "user_id": "2",
+    "exercise_id": "4"
   },
   {
-    "duration": "",
-    "calories_burnt": "",
-    "user_id": "",
-    "exercise_id": ""
+    "duration": "25",
+    "calories_burnt": "1134",
+    "user_id": "3",
+    "exercise_id": "2"
   }
 ]

@@ -15,16 +15,10 @@ Exercise.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlpha: true,
-      },
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        isAlphanumeric: true,
-      },
     },
     type: {
       type: DataTypes.STRING,

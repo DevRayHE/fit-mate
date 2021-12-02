@@ -12,7 +12,8 @@ exerciseRecord.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    duration: {
+    // minutes
+    duration: { 
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
@@ -33,6 +34,13 @@ exerciseRecord.init(
         key: 'id',
       },
     },
+    email: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'first_name',
+      },
+      },
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -46,7 +54,7 @@ exerciseRecord.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'exercise',
+    modelName: 'exerciseRecord',
   }
 );
 
