@@ -1,5 +1,5 @@
 .homepagebg {
-    background-image: url(/Images/Demo/homepage-bg.jpg);
+    background-image: url("homepage-bg.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment:fixed;
