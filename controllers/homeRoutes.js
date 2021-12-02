@@ -5,14 +5,14 @@ const withAuth = require('../utils/auth');
 
 // Render home page
 router.get("/", async (req, res) => {
-  Exercise.findAll({
-    include: [User],
-  }).then((exerciseData) => {
-    const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
-    res.render("homepage", { exercises });
-  }).catch((err)=>{
-    res.status(500).json(err);
-  })
+  // Exercise.findAll({
+  //   include: [User],
+  // }).then((exerciseData) => {
+  //   const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
+    res.render("homepage", {layout: "home"});
+  // }).catch((err)=>{
+  //   res.status(500).json(err);
+  // })
 });
 
 // Login
