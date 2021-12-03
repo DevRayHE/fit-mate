@@ -3,21 +3,26 @@ const router = require('express').Router();
 const { Exercise, ExerciseRecord, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Render home page
+// Render home page only
+// router.get("/", async (req, res) => {
+
+//   ExerciseRecord.findAll({
+//     include: [{ model: User },],
+//   }).then((exerciseData) => {
+//     // console.log(exerciseData);
+//     const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
+//     // console.log(exercises);
+//     res.render("homepage", { exercises });
+//     // console.log(exercises);
+//   }).catch((err)=>{
+//     res.status(500).json(err);
+//   })
+// });
+
 router.get("/", async (req, res) => {
-
-  ExerciseRecord.findAll({
-    include: [{ model: User },],
-  }).then((exerciseData) => {
-    console.log(exerciseData);
-    const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
-    console.log(exercises);
-    res.render("login", { exercises });
-    console.log(exercises);
-  }).catch((err)=>{
-    res.status(500).json(err);
-  })
-
+    res.render("homepage", {
+      layout: 'home'
+    });
 });
 
 // Login
@@ -36,7 +41,7 @@ router.get("/signup", async (req, res) => {
     return;
   }
   const signUp = true;
-  res.render("userInfoForm", { signUp });
+  res.render("signUp", { signUp });
 });
 
 module.exports = router;

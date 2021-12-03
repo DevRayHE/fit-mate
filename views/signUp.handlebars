@@ -1,14 +1,9 @@
 <div class="row align-items-center">
 
 	<div class="col-md-6" style="border: 3px solid blue;">
-		<h2>Sign Up</h2>
 		<h2>
-			{{#if signUp}}
-				Sign Up
-			{{/if}}
-			{{#if editProfile}}
-				Edit Profile
-			{{/if}}
+			Sign Up
+			Edit Profile
 		</h2>
 
 		{{#if signUp}}
@@ -66,7 +61,7 @@
 		{{/if}}
 
 		{{#if editProfile}}
-			<form class="form signup-form">
+			<form class="form edit-profile-form">
 				<div class="form-group pb-2">
 					<label for="first-name-signup">First Name:</label>
 					<input
@@ -128,4 +123,4 @@
 
 </div>
 
-<script src="/public/js/profile.js"></script>
+<script src="/js/profile.js"></script>
