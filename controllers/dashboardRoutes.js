@@ -9,12 +9,11 @@ router.get("/", withAuth, (req, res) => {
 		where: { id: req.session.user_id },
 	})
 		.then((userData) => {
-      const userRecord = userData.get({ plain: true });
-	
-			res.render(`dashboard/${user_id}`, {
-				// layout: "dashboard",
+       const userRecord = userData.get({ plain: true });
+				res.render("dashboard", {
 				logged_in: req.session.logged_in,
-				userRecord,
+				// userData,
+				...userRecord,
 			});
 		})
 		.catch((err) => {
