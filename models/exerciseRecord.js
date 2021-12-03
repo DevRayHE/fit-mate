@@ -1,10 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class exerciseRecord extends Model {}
+class ExerciseRecord extends Model {}
 
 // Define each table row attributes with data validation
-exerciseRecord.init(
+ExerciseRecord.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,7 +13,7 @@ exerciseRecord.init(
       autoIncrement: true,
     },
     // minutes
-    duration: { 
+    duration: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
@@ -30,8 +30,8 @@ exerciseRecord.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
     // email: {
@@ -40,12 +40,14 @@ exerciseRecord.init(
     //     model: 'user',
     //     key: 'first_name',
     //   },
-    //   },
+    // },
+
+
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'exercise',
-        key: 'id',
+        model: "exercise",
+        key: "id",
       },
     },
   },
@@ -54,8 +56,10 @@ exerciseRecord.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'exerciseRecord',
+    modelName: "exerciseRecord",
   }
 );
 
-module.exports = exerciseRecord;
+
+module.exports = ExerciseRecord;
+
