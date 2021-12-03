@@ -1,0 +1,70 @@
+<div class="row align-items-center">
+
+	<div class="col-md-6" style="border: 3px solid blue;">
+		<h2>
+			Edit Profile
+		</h2>
+
+			<form class="form edit-profile-form">
+				<div class="form-group pb-2">
+					<label for="first-name-edit">First Name:</label>
+					<input
+						class="form-input"
+						type="text"
+						id="first-name-edit"
+						value={{first_name}}
+						required
+					/>
+				</div>
+				<div class="form-group pb-2">
+					<label for="last-name-edit">Last Name:</label>
+					<input
+						class="form-input"
+						type="text"
+						id="last-name-edit"
+						value={{last_name}}
+						required
+					/>
+				</div>
+				<div class="form-group pb-2">
+					<label for="email-edit">Email:</label>
+					<input
+						class="form-input"
+						type="text"
+						id="email-edit"
+						value={{email}}
+						required
+					/>
+				</div>
+				<div class="form-group pb-2">
+					<label for="weight-edit">Weight:</label>
+					<input
+						placeholder="KG"
+						class="form-input"
+						type="text"
+						value={{weight}}
+						id="weight-edit"
+						required
+					/>
+				</div>
+				<div class="form-group pb-2">
+					<label for="height-edit">Age:</label>
+					<input
+						class="form-input"
+						type="text"
+						id="age-edit"
+						value={{age}}
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" type="submit">Edit Profile</button>
+				</div>
+			</form>
+		{{/if}}
+
+	</div>
+
+</div>
+
+<script src="/js/profile.js"></script>

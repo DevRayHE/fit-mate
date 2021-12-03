@@ -3,10 +3,10 @@ const { Exercise, ExerciseRecord, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Render the main dashboard for the req.loggedin user
-router.get("/:id", withAuth, (req, res) => {
+router.get("/", withAuth, (req, res) => {
 
 	User.findAll({
-		where: { user_id: req.session.user_id },
+		where: { id: req.session.user_id },
 	})
 		.then((userData) => {
       const userRecord = userData.get({ plain: true });

@@ -7,27 +7,56 @@ const withAuth = require("../../utils/auth");
 // Route to edit/Update a user data with ID
 
 // Create new user route
-router.post("/", (req, res) => {
-	User.create({
-		email: req.body.email,
-		password: req.body.password,
+router.post("/", async (req, res) => {
+	
+	try {
+		const userData = await User.create({
+			first_name: req.body.firstName,
+			last_name: req.body.lastName,
+			email: req.body.email,
+			password: req.body.password,
+			age: req.body.age,
+			weight: req.body.weight,
+		});
 
-		// firstName, lastName, weight, age
-	}).then((userData) => {
 		req.session.save(() => {
 			req.session.user_id = userData.id;
 			req.session.email = userData.email;
 			req.session.logged_in = true;
-			res.json(userData);
+
+			res.status(200).json(userData);
 		});
-	});
+	} catch (err) {
+		console.log(err);
+	}
+	// User.create({
+	// 	first_name: req.body.firstName,
+	// 	last_name: req.body.lastName,
+	// 	email: req.body.email,
+	// 	password: req.body.password,
+	// 	age: req.body.age,
+	// 	weight: req.body.weight,
+
+	// }).then((userData) => {
+	// 	req.session.save(() => {
+	// 		req.session.user_id = userData.id;
+	// 		req.session.email = userData.email;
+	// 		req.session.logged_in = true;
+	// 		res.json(userData);
+	// 	});
+	// });
 });
 
 // Route to update user info
 router.put("/:id", (req, res) => {
 	User.update({
+
+		first_name: req.body.firstName,
+		last_name: req.body.lastName,
 		email: req.body.email,
-		// firstName, lastName weight, age
+		age: req.body.age,
+		weight: req.body.weight
+
 	}).then((userData) => {
 		req.session.save(() => {
 			req.session.user_id = userData.id;
