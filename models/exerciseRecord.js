@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class ExerciseRecord extends Model {}
 
@@ -13,7 +13,7 @@ ExerciseRecord.init(
       autoIncrement: true,
     },
     // minutes
-    duration: { 
+    duration: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
@@ -30,8 +30,8 @@ ExerciseRecord.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
     // email: {
@@ -46,8 +46,8 @@ ExerciseRecord.init(
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'exercise',
-        key: 'id',
+        model: "exercise",
+        key: "id",
       },
     },
   },
@@ -56,8 +56,10 @@ ExerciseRecord.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'exerciseRecord',
+    modelName: "exerciseRecord",
   }
 );
 
+
 module.exports = ExerciseRecord;
+
