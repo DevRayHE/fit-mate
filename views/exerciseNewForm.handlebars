@@ -1,26 +1,34 @@
-<form class="form new-exercise-form" data-id="{{user_id}}">
-	<div class="form-group">
-		<label for="new-comment bg-light">Add a new exercise record:</label>
-    
-    <div class="form-group pb-2">
-    <label for="date">Date:</label>
-		<input class="form-input" type="text" id="date" />
-    </div>
+<form data-id="{{user_id}}">
+  <label for="new-comment bg-light">Add A New Exercise Record:</label>
+  <div class="mb-3">
+    <label for="exercisedate" class="form-label">EXERCISE DATE: </label>
+    <input type="date" class="form-control" id="date">
+  </div>
+  <div class="mb-3">
+    <label for="detail" class="form-label">Exercise Type:</label>
+    <select id="exercisetype" class="form-select">
+      <option selected>Choose from below.....</option>
+      <option>Indoor Dance</option>
+      <option>Outdoor Dance</option>
+      <option>Indoor Yoga</option>
+      <option>Outdoor Yoga</option>
+      <option>Swimming</option>
+      <option>Indoor Walk</option>
+      <option>Outdoor Walk</option>
+      <option>Indoor Run</option>
+      <option>Outdoor Run</option>
+      <option>Cycling</option>
+      <option>Hiking</option>
+      <option>Tennis</option>
+    </select>
+  </div>
+  <label for="duration">Duration (In mins):</label>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Duration in minutes..." id="duration">
+    <span class="input-group-text" id="basic-addon2">Minutes</span>
+  </div>
 
-    <div class="form-group pb-2">
-    <label for="detail">Exercise detail:</label>
-    <input class="form-input" type="text" id="detail" />
-    </div>
-
-    <div class="form-group pb-2">
-    <label for="duration">Duration:</label>
-    <input class="form-input" type="text" id="duration" />
-    </div>
-    
-		<button class="btn btn-primary" type="submit" id="newRecordBtn">
-			Add
-		</button>
-	</div>
+  <button type="submit" class="btn btn-primary" id="newRecordBtn">Submit</button>
 </form>
 
 <script src="/js/exercise.js"></script>
