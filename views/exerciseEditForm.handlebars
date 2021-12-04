@@ -1,0 +1,38 @@
+<form class="new-exercise-form" data-id="{{user_id}}">
+  <label for="new-comment bg-light">Edit Exercise Record:</label>
+  <div class="mb-3">
+    <label for="exercisedate" class="form-label">EXERCISE DATE: </label>
+    <input type="date" class="form-control" id="date">
+  </div>
+  <div class="mb-3">
+    <label for="detail" class="form-label">Exercise Type:</label>
+    <select id="exercise-detail" class="form-select">
+      <option selected>Choose from below.....</option>
+      <option>Indoor Dance</option>
+      <option>Indoor Yoga</option>
+      <option>Indoor Swimming</option>
+      <option>Indoor Walking</option>
+      <option>Outdoor Walking</option>
+      <option>Indoor Running</option>
+      <option>Outdoor Running</option>
+      <option>Outdoor Cycling</option>
+      <option>Outdoor Hiking</option>
+      <option>Outdoor Tennis</option>
+    </select>
+  </div>
+  <label for="duration">Duration (In mins):</label>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Duration in minutes..." id="duration">
+    <span class="input-group-text">Minutes</span>
+  </div>
+  <label for="duration">Weight (In KG):</label>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Weight in kg..." id="weight">
+    <span class="input-group-text">KG</span>
+  </div>
+    
+  <button class="btn btn-primary" type="submit" id="newRecordBtn">
+    Confirm Changes
+  </button>
+	</div>
+</form>
