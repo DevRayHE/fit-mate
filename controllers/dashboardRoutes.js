@@ -16,14 +16,14 @@ router.get("/", withAuth, async (req, res) => {
 
 		//seralize data
 		const userRecord = userData.get({ plain: true });
-		// console.log(exerciseRecordData);
+		console.log(exerciseRecordData);
 		const exerciseRecord = exerciseRecordData.map((record) => record.get({ plan: true}));
-		// console.log(exerciseRecordData);
+		console.log(exerciseRecord);
 
 		res.render("dashboard", {
 			logged_in: req.session.logged_in,
 			...userRecord,
-			...exerciseRecord
+			exerciseRecord
 		});
 	} catch (err) {
 		console.log(err);
