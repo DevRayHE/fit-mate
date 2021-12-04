@@ -32,27 +32,23 @@ router.post("/", async (req, res) => {
 // Route to edit/Update a user data with ID
 // Route to update user info
 router.put("/:id", (req, res) => {
+
 	User.update(
-		{ first_name: req.body.firstName,
+		{ 
+			first_name: req.body.firstName,
 			last_name: req.body.lastName,
 			age: req.body.age,
 			weight: req.body.weight
 		},
 		{
 			where: {
-			user_id: req.session.user_id,
-		}},
-		
-
-	).then((userData) => {
-		req.session.save(() => {
-			req.session.user_id = userData.user_id;
-			req.session.email = userData.email;
-			req.session.logged_in = true;
-      
-			res.json(userData);
-		});
-	});
+				user_id: req.session.user_id,
+			}
+		})
+		.then((userData) => {
+		res.json(userData);
+	})
+	.catch((err) => res.json(err));
 });
 
 // Login route
@@ -85,36 +81,6 @@ router.post("/login", (req, res) => {
 	});
 });
 
-
-// Route to update user's password??
-
-router.post("/login", (req, res) => {
-	User.findOne({
-		where: {
-			email: req.body.email,
-		},
-	}).then((userData) => {
-		if (!userData) {
-			res.status(400).json({
-				message: "No user found",
-			});
-			return;
-		}
-		const validPassword = userData.checkPassword(req.body.password);
-		if (!validPassword) {
-			res.status(400).json({
-				message: "Incorrect Password",
-			});
-			return;
-		}
-		req.session.save(() => {
-			req.session.user_id = userData.id;
-			req.session.email = userData.email;
-			req.session.logged_in = true;
-			res.json({ user: userData, message: "You are now logged in" });
-		});
-	});
-});
 // Logout route
 router.post("/logout", (req, res) => {
 	console.log(req.session);
@@ -140,27 +106,7 @@ router.delete("/user/:id", (req, res) => {
 	});
 });
 
-router.post("/logout", (req, res) => {
-	console.log(req.session);
-	if (req.session.logged_in) {
-		req.session.destroy(() => {
-			res.status(204).end();
-		});
-	} else {
-		res.status(404).end();
-	}
-});
+// Route to update user's password??
 
-router.delete("/user/:id", (req, res) => {
-	User.destroy({
-		where: { id: req.params.id },
-	}).then((userData) => {
-		if (!userData) {
-			res.status(404).json({ message: "No user found" });
-			return;
-		}
-		res.json(userData);
-	});
-});
 
 module.exports = router;
