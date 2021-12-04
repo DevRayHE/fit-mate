@@ -50,17 +50,17 @@ const editFormHandler = async (event) => {
 
   const firstName = document.querySelector("#first-name-edit").value.trim();
   const lastName = document.querySelector("#last-name-edit").value.trim();
-  const email = document.querySelector("#email-edit").value.trim();
-  const password = document.querySelector("#password-edit").value.trim();
+  //const email = document.querySelector("#email-edit").value.trim();
+  //const password = document.querySelector("#password-edit").value.trim();
   const weight = document.querySelector("#weight-edit").value.trim();
-  const age = document.querySelector("#height-edit").value.trim();
+  const age = document.querySelector("#age-edit").value.trim();
 
-  console.log(firstName, lastName, email, password, weight, age)
+  console.log(firstName, lastName, weight, age)
 
-  if (firstName && lastName && email && password && age && weight) {
+  if (firstName && lastName && age && weight) {
     const response = await fetch(`/api/users/${id}`, {
       method: 'PUT',
-      body: JSON.stringify({ firstName, lastName, email, password, height, weight }),
+      body: JSON.stringify({ firstName, lastName, age, weight }),
       headers: { 'Content-Type': 'application/json' },
     });
 

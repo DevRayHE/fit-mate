@@ -32,15 +32,19 @@ router.post("/", async (req, res) => {
 // Route to edit/Update a user data with ID
 // Route to update user info
 router.put("/:id", (req, res) => {
-	User.update({
+	User.update(
+		{ first_name: req.body.firstName,
+			last_name: req.body.lastName,
+			age: req.body.age,
+			weight: req.body.weight
+		},
+		{
+			where: {
+			user_id: req.session.user_id,
+		}},
+		
 
-		first_name: req.body.firstName,
-		last_name: req.body.lastName,
-		email: req.body.email,
-		age: req.body.age,
-		weight: req.body.weight
-
-	}).then((userData) => {
+	).then((userData) => {
 		req.session.save(() => {
 			req.session.user_id = userData.user_id;
 			req.session.email = userData.email;
