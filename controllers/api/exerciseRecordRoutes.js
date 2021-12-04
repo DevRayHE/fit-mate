@@ -27,6 +27,13 @@ router.get("/:id", withAuth, (req, res) => {
 	});
 });
 
+// Display the form to input a new exercise record
+router.get("/new", withAuth, async (req, res) => {
+
+	console.log("new clicked!!")
+	res.render("exerciseNewForm");
+});
+
 
 // New exercise route with POST
 router.post("/new", withAuth, (req, res) => {

@@ -11,7 +11,7 @@ class User extends Model {
 // Define each table row attributes with data validation
 User.init(
   {
-    id: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
