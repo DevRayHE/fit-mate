@@ -34,19 +34,21 @@ const signupFormHandler = async (event) => {
 };
 
 // handle event to display edit current user profile info form
-const editBtnHandler = async (event) => {
-  event.preventDefault();
+// const editBtnHandler = async (event) => {
+//   event.preventDefault();
 
-  const id = event.target.getAttribute('data-id');
+//   const id = event.target.getAttribute('data-id');
 
-  document.location.replace(`/dashboard/edit/${id}`);
-};
+//   document.location.replace(`/dashboard/edit/${id}`);
+// };
 
 // Handle the event to edit a user's profile info
 const editFormHandler = async (event) => {
   event.preventDefault();
 
+  // Get the current logged in user id
   const id = event.target.getAttribute('data-id');
+  console.log("ID from attribute target: " + id);
 
   const firstName = document.querySelector("#first-name-edit").value.trim();
   const lastName = document.querySelector("#last-name-edit").value.trim();
@@ -57,6 +59,7 @@ const editFormHandler = async (event) => {
 
   console.log(firstName, lastName, weight, age)
 
+  // Calling the user put route to update user record.
   if (firstName && lastName && age && weight) {
     const response = await fetch(`/api/users/${id}`, {
       method: 'PUT',
@@ -65,7 +68,7 @@ const editFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace(`/dashboard`);
     } else {
       alert(response.statusText);
     }
@@ -74,17 +77,19 @@ const editFormHandler = async (event) => {
   }
 };
 
+// Select the element on the form
 const signUpForm = document.querySelector(".signup-form");
-const editBtn = document.querySelector(".edit-btn");
+// const editBtn = document.querySelector(".edit-btn");
 const editProfileForm = document.querySelector(".edit-profile-form");
 
+// Add event listener to the elements
 if (signUpForm) {
   signUpForm.addEventListener("submit", signupFormHandler);
 };
 
-if (editBtn) {
-  editBtn.addEventListener("click", editBtnHandler);
-};
+// if (editBtn) {
+//   editBtn.addEventListener("click", editBtnHandler);
+// };
 
 if (editProfileForm) {
   editProfileForm.addEventListener("submit", editFormHandler);
