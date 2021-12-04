@@ -3,23 +3,26 @@ const { Exercise, ExerciseRecord, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Render the main dashboard for the req.loggedin user
-router.get("/", withAuth, (req, res) => {
+router.get("/", withAuth, async (req, res) => {
 
-	User.findAll({
-		where: { id: req.session.user_id },
-	})
-		.then((userData) => {
-       const userRecord = userData.get({ plain: true });
-				res.render("dashboard", {
-				logged_in: req.session.logged_in,
-				// userData,
-				...userRecord,
-			});
-		})
-		.catch((err) => {
-			console.log(err);
-			res.redirect("login");
+	try {
+		const userData = await User.findOne({
+			where: { id: req.session.user_id },
 		});
+
+		console.log(userData);
+		const userRecord = userData.get({ plain: true });
+		console.log(userRecord);
+
+		res.render("dashboard", {
+			logged_in: req.session.logged_in,
+			...userRecord,
+		});
+	} catch (err) {
+		console.log(err);
+		// Redirect to login page if any error
+		res.redirect("login");
+	};
 });
 
 // ?? Use this route to create new record or FE logic eventlistener on the + button on dashboard to render the new exercise record form ??
@@ -29,15 +32,18 @@ router.get("/", withAuth, (req, res) => {
 // 	});
 // });
 
-// Route to display edit profile with ID as paramater
-router.put("/edit/:id", withAuth, (req, res) => {
-	User.findByPk(req.params.id)
+// Route to display edit profile form
+router.get("/edit", withAuth, (req, res) => {
+	
+	const user_id = req.session.user_id;
+
+	User.findByPk(user_id)
 		.then((userData) => {
 			if (userData) {
 				const userRecord = userData.get({ plain: true });
 				const editProfile = true;
 
-				res.render("userinfoForm", {
+				res.render("editProfile", {
 					...userRecord,
 					logged_in: req.session.logged_in,
 					editProfile,
