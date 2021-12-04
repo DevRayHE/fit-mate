@@ -2,61 +2,61 @@
   {
     "name": "Dance",
     "description": "There are many forms of dance, from ballroom to barn dancing and disco to Morris dancing. Dance has always been a part of human culture, rituals and celebrations. Today, most dancing is about recreation and self-expression, although it can also be done as a competitive activity. Dancing is an enjoyable way to be more physically active and stay fit.",
-    "type": "indoor",
+    "type": "Indoor",
     "MET": "7.3"
   },
   {
     "name": "Yoga",
     "description": "Yoga combines physical exercises, mental meditation, and breathing techniques to strengthen the muscles and relieve stress. Yoga has been practiced for thousands of years as a life philosophy to join the individual self with what practitioners call the Divine, Universal Spirit, or Cosmic Consciousness.",
-    "type": "indoor",
+    "type": "Indoor",
     "MET": "2.8"
   },
   {
     "name": "Swimming",
     "description": "Swimming, in recreation and sports, the propulsion of the body through water by combined arm and leg motions and the natural flotation of the body. Swimming as an exercise is popular as an all-around body developer and is particularly useful in therapy and as exercise for physically handicapped persons. It is also taught for lifesaving purposes.",
-    "type": "indoor",
+    "type": "Indoor",
     "MET": "7.5"
   },
   {
     "name": "Walking",
     "description": "Indoor walking is one of the most effective forms of exercise around, and it’s also great because you can do it any time of year no matter what the weather is like outside. While walking is always good for your body, if you want to burn more calories and get in shape, make sure you follow along with a walking workout like this one that incorporates different movements and has you work at different intensities.",
-    "type": "indoor",
+    "type": "Indoor",
     "MET": "4.5"
   },
   {
     "name": "Running",
     "description": "Running requires a higher level of overall fitness than jogging. Both running and jogging are forms of aerobic exercise. Aerobic means 'with oxygen' – the term 'aerobic exercise' means any physical activity that produces energy by combining oxygen with blood glucose or body fat. Goal setting for running and jogging",
-    "type": "indoor",
+    "type": "Indoor",
     "MET": "7.5"
   },
   {
     "name": "Cycling",
     "description": "Cycling is mainly an aerobic activity, which means that your heart, blood vessels and lungs all get a workout. You will breathe deeper, perspire and experience increased body temperature, which will improve your overall fitness level.",
-    "type": "indoor",
+    "type": "Outdoor",
     "MET": "8.0"
   },
   {
     "name": "Hiking",
     "description": "Hiking, walking in nature as a recreational activity. Especially among those with sedentary occupations, hiking is a natural exercise that promotes physical fitness, is economical and convenient, and requires no special equipment. Because hikers can walk as far as they want, there is no physical strain unless they walk among hills or mountains.",
-    "type": "indoor",
+    "type": "Outdoor",
     "MET": "6.8"
   },
   {
     "name": "Tennis",
     "description": "Running requires a higher level of overall fitness than jogging. Both running and jogging are forms of aerobic exercise. Aerobic means 'with oxygen' – the term 'aerobic exercise' means any physical activity that produces energy by combining oxygen with blood glucose or body fat. Goal setting for running and jogging",
-    "type": "indoor",
+    "type": "Outdoor",
     "MET": "7.3"
   },
   {
     "name": "Walking",
     "description": "Walking may be the simplest way to work out. You can do it almost anywhere, and it’s a snap to get started: Just put one foot in front of the other.\n There are many great reasons to walk. Your heart will get stronger, you’ll lower your blood pressure, and your bones will get stronger. Walking also eases stress, helps you sleep better, and can boost your outlook on life.\n Walk at a brisk pace for 30 minutes or more on most days. Do it alone or with a friend. Try a walking club or recruit your family for an after-dinner walk. All you need is a pair of walking shoes.",
-    "type": "indoor",
+    "type": "Outdoor",
     "MET": "5.0"
   },
   {
     "name": "Running",
     "description": "Running requires a higher level of overall fitness than jogging. Both running and jogging are forms of aerobic exercise. Aerobic means 'with oxygen' – the term 'aerobic exercise' means any physical activity that produces energy by combining oxygen with blood glucose or body fat. Goal setting for running and jogging",
-    "type": "indoor",
+    "type": "Outdoor",
     "MET": "8.0"
   }
 ]

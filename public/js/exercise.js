@@ -9,9 +9,17 @@ const newExerciseSubmitHandler = async (event) => {
 
   const date = document.querySelector("#date").value.trim();
   // These two will need to be look at how to integrate with the form submission, due to it's going to be selected via the drop down.
-  const name = document.querySelector("#name").value.trim();
-  const type = document.querySelector("#type").value.trim();
-  const duration = document.querySelector("#content").value.trim();
+  const exerciseDetail = document.querySelector("#exercise-detail").value.trim().splice(' ');
+  // const type = document.querySelector("#type").value.trim();
+  const duration = document.querySelector("#duration").value.trim();
+
+  const type = exerciseDetail[0];
+  const name = exerciseDetail[1];
+
+  console.log(date);
+  console.log(type);
+  console.log(name);
+  console.log(duration);
 
   if (date && name && type && duration) {
     const response = await fetch('/api/exercise', {
