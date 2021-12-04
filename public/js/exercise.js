@@ -7,19 +7,22 @@ const newExerciseFormHandler = async (event) => {
 const newExerciseSubmitHandler = async (event) => {
   event.preventDefault();
 
+  const date = document.querySelector("#date").value.trim();
+  // These two will need to be look at how to integrate with the form submission, due to it's going to be selected via the drop down.
   const name = document.querySelector("#name").value.trim();
+  const type = document.querySelector("#type").value.trim();
   const duration = document.querySelector("#content").value.trim();
 
-  if (name && duration) {
+  if (date && name && type && duration) {
     const response = await fetch('/api/exercise', {
       method: 'POST',
-      body: JSON.stringify({ name, duration }),
+      body: JSON.stringify({ date, name, type, duration }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
       // return to dashboard
-      document.location.replace('/exercise');
+      document.location.replace('/dashboard');
     } else {
       alert("New exercise failed to create!");
     }
