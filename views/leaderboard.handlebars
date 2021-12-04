@@ -1,0 +1,39 @@
+<div>
+    <h1 style="text-decoration: underline;"><i class="bi bi-list-ol"></i> LEADERBOARD</h1>
+    <div class="row align-items-center">
+        <div class="col-3 p-2 d-grid gap-4">
+            <button class="btn btn-primary" type="submit">Sort by Calories Burnt</button>
+            <button class="btn btn-primary" type="submit">Sort by Exercise Type</button>
+        </div>
+
+{{!-- if sort by Calories Burnt --}}
+        <div class="col-8 border border-primary p-4" style="overflow: auto;">
+            <div class="row g-0">
+                <div class="col-3">
+                    <div class="border bg-light">RANK</div>
+                </div>
+                <div class="col-5">
+                    <div class="border bg-light">USERNAME</div>
+                </div>
+                <div class="col-4">
+                    <div class="border bg-light">CALORIES BURNT</div>
+                </div>
+            </div>
+        </div>
+
+{{!-- if sort by exercise type --}}
+        <div class="col-8 border border-primary p-4 offset-md-3" style="overflow: auto;">
+            <div class="row g-0">
+                <div class="col-3">
+                    <div class="border bg-light">RANK</div>
+                </div>
+                <div class="col-5">
+                    <div class="border bg-light">USERNAME</div>
+                </div>
+                <div class="col-4">
+                    <div class="border bg-light">EXERCISE TYPE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
