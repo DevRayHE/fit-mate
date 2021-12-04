@@ -5,9 +5,12 @@ const withAuth = require("../utils/auth");
 // Render the main dashboard for the req.loggedin user
 router.get("/", withAuth, async (req, res) => {
 
+	const user_id = req.session.user_id;
+	console.log(user_id);
+
 	try {
 		const userData = await User.findOne({
-			where: { user_id: req.session.user_id },
+			where: { user_id: user_id },
 		});
 
 		const exerciseRecordData = await ExerciseRecord.findAll({
@@ -16,9 +19,9 @@ router.get("/", withAuth, async (req, res) => {
 
 		//seralize data
 		const userRecord = userData.get({ plain: true });
-		console.log(exerciseRecordData);
+		// console.log(exerciseRecordData);
 		const exerciseRecord = exerciseRecordData.map((record) => record.get({ plan: true}));
-		console.log(exerciseRecord);
+		// console.log(exerciseRecord);
 
 		res.render("dashboard", {
 			logged_in: req.session.logged_in,

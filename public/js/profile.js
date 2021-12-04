@@ -46,6 +46,7 @@ const editBtnHandler = async (event) => {
 const editFormHandler = async (event) => {
   event.preventDefault();
 
+  // Get the current logged in user id
   const id = event.target.getAttribute('data-id');
 
   const firstName = document.querySelector("#first-name-edit").value.trim();
@@ -74,10 +75,12 @@ const editFormHandler = async (event) => {
   }
 };
 
+// Select the element on the form
 const signUpForm = document.querySelector(".signup-form");
 const editBtn = document.querySelector(".edit-btn");
 const editProfileForm = document.querySelector(".edit-profile-form");
 
+// Add event listener to the elements
 if (signUpForm) {
   signUpForm.addEventListener("submit", signupFormHandler);
 };
