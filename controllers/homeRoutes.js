@@ -44,7 +44,7 @@ router.get("/signup", async (req, res) => {
   res.render("signUp", { signUp });
 });
 
-module.exports = router;
+
 
 
 // Comment the below block of conflict for now.
