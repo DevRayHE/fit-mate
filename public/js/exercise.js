@@ -9,8 +9,9 @@ const newExerciseSubmitHandler = async (event) => {
 
   const date = document.querySelector("#date").value.trim();
   // These two will need to be look at how to integrate with the form submission, due to it's going to be selected via the drop down.
-  const exerciseDetail = document.querySelector("#exercise-detail").value.trim().splice(' ');
+  const exerciseDetail = document.querySelector("#exercise-detail").value.trim().split(' ');
   // const type = document.querySelector("#type").value.trim();
+  const weight = document.querySelector("#weight").value.trim();
   const duration = document.querySelector("#duration").value.trim();
 
   const type = exerciseDetail[0];
@@ -21,10 +22,33 @@ const newExerciseSubmitHandler = async (event) => {
   console.log(name);
   console.log(duration);
 
-  if (date && name && type && duration) {
-    const response = await fetch('/api/exercise', {
+  //logic to calculate calories_burnt ?paramA=valueA&paramB=valueB
+  //formular: MET*weight in kg=calories/hour
+  try {
+    const resJSON = await fetch(`/api/exercise/MET/${name}/${type}`, {
+      method: 'GET',
+      // body: JSON.stringify({ name, type }),
+      // headers: { 'Content-Type': 'application/json' },
+    });
+
+    const resData  = await resJSON.json();
+    console.log(resData);
+
+    const MET = resData.MET;
+
+    var exercise_id = resData.ID;
+    var calories_burnt = MET * weight * (duration /60);
+    console.log(calories_burnt);
+
+  } catch (err) {
+    console.log(err);
+  }
+  
+
+  if (date && name && type && duration && calories_burnt) {
+    const response = await fetch('/api/exercise/new', {
       method: 'POST',
-      body: JSON.stringify({ date, name, type, duration }),
+      body: JSON.stringify({ date, name, type, duration, calories_burnt, exercise_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 

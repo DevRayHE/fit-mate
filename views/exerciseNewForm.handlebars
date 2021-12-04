@@ -1,4 +1,4 @@
-<form data-id="{{user_id}}">
+<form class="new-exercise-form" data-id="{{user_id}}">
   <label for="new-comment bg-light">Add A New Exercise Record:</label>
   <div class="mb-3">
     <label for="exercisedate" class="form-label">EXERCISE DATE: </label>
@@ -25,20 +25,15 @@
     <input type="text" class="form-control" placeholder="Duration in minutes..." id="duration">
     <span class="input-group-text">Minutes</span>
   </div>
-
-    <div class="form-group pb-2">
-    <label for="detail">Exercise detail:</label>
-    <input class="form-input" type="text" id="detail" />
-    </div>
-
-    <div class="form-group pb-2">
-    <label for="duration">Duration:</label>
-    <input class="form-input" type="text" id="duration" />
-    </div>
+  <label for="duration">Weight (In KG):</label>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Weight in kg..." id="weight">
+    <span class="input-group-text">KG</span>
+  </div>
     
-		<button class="btn btn-primary" type="submit" id="newRecordBtn">
-			Add
-		</button>
+  <button class="btn btn-primary" type="submit" id="newRecordBtn">
+    Add
+  </button>
 	</div>
 </form>
 

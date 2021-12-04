@@ -14,7 +14,7 @@ router.get("/", withAuth, (req, res) => {
 	});
 });
 
-// Get the exercise route with the ID as req.params.id to fetch the specific record data
+// Get the exercise with the ID as req.params.id to fetch the specific record data
 router.get("/:id", withAuth, (req, res) => {
 	ExerciseRecord.update(req.body, {
 		where: { id: req.params.id },
@@ -25,6 +25,30 @@ router.get("/:id", withAuth, (req, res) => {
 			res.status(404).end();
 		}
 	});
+});
+
+// find the matching exercise record and return the Met value
+router.get("/MET/:name/:type", withAuth, async (req, res) => {
+	console.log(req.params.name, req.params.type)
+
+	try {
+		const matchedExercise = await Exercise.findOne({
+			where: { name: req.params.name, type: req.params.type },
+		});
+		
+		console.log(matchedExercise);
+		const exerciseRecord = matchedExercise.get({ plain:true });
+		console.log(exerciseRecord);
+		
+		if (exerciseRecord) {
+			res.status(200).json({ MET: exerciseRecord.MET, ID: exerciseRecord.exercise_id })
+		}
+
+	} catch (err) {
+		console.log(err);
+		res.redirect("exerciseNewForm");
+	}
+	
 });
 
 // Display the form to input a new exercise record
@@ -40,6 +64,7 @@ router.post("/new", withAuth, (req, res) => {
 	const body = req.body;
 	ExerciseRecord.create({
 		...body,
+		// calories_burnt: calories_burnt,
 		user_id: req.session.user_id,
 	})
 		.then((newRecord) => {
