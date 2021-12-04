@@ -6,8 +6,9 @@
                 <h5 class="card-title"> {{first_name}} {{last_name}} </h5> </h5>
                 <p class="card-text"> Weight: {{weight}} KG </p>
                 <p class="card-text"> Age: {{age}}  </p>
+                <p class="card-text"> Email: {{email}} </p>
     
-                <a href="#" class="btn btn-primary">EDIT PROFILE</a>
+                <a href="/dashboard/edit" class="btn btn-primary">EDIT PROFILE</a>
             </div>
         </div>
     </div>
@@ -15,9 +16,19 @@
         <div class="row">
             <div class="col col-md-6 offset-md-3">
                 <h3 style="text-decoration: underline;">PAST 5 DAYS RECORD</h3>
+                {{!-- render each exercise record detail from patial --}}
+                {{#if exerciseRecord}}
+                    <section class="text-center">
+                    {{#each exerciseRecord as |record|}}
+                    {{> record-details}}
+                    {{/each}}
+                    </section>
+                {{/if}}
             </div>
             <div class="col col-md-1 offset-md-1">
-                <button class="btn btn-primary me-md-2" type="button">+</button>
+                <button class="btn btn-primary me-md-2" type="button">
+                    <a href="/newexerciserecord">+ Add a record</a>
+                </button>
             </div>
         </div>
 

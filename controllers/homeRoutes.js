@@ -1,9 +1,9 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const { Exercise, ExerciseRecord, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Exercise, ExerciseRecord, User } = require("../models");
+const withAuth = require("../utils/auth");
 
-// Render home page only
+// Render home page only - old version
 // router.get("/", async (req, res) => {
 
 //   ExerciseRecord.findAll({
@@ -20,9 +20,9 @@ const withAuth = require('../utils/auth');
 // });
 
 router.get("/", async (req, res) => {
-    res.render("homepage", {
-      layout: 'home'
-    });
+  res.render("homepage", {
+    layout: "home",
+  });
 });
 
 // Login
@@ -44,8 +44,13 @@ router.get("/signup", async (req, res) => {
   res.render("signUp", { signUp });
 });
 
+// Display the form to input a new exercise record
+router.get("/newexerciserecord", withAuth, (req, res) => {
+  console.log("new clicked!!");
+  res.render("exerciseNewForm");
+});
 
-
+module.exports = router;
 
 // Comment the below block of conflict for now.
 // const { Exericse, User } = require('../models');
@@ -68,9 +73,9 @@ router.get("/signup", async (req, res) => {
 
 //     // Pass serialized data and session flag into template
 //     // render login page for now, to be changed to 'homepage'.
-//     res.render('login', { 
-//       exercises, 
-//       logged_in: req.session.logged_in 
+//     res.render('login', {
+//       exercises,
+//       logged_in: req.session.logged_in
 //     });
 //   } catch (err) {
 //     res.status(500).json(err);
@@ -119,16 +124,3 @@ router.get("/signup", async (req, res) => {
 //   }
 
 // });
-
-// route to handle signup
-router.get("/signup", async (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/dashboard");
-    return;
-  }
-  res.render("signup");
-});
-
-
-module.exports = router;
-

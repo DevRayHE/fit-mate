@@ -6,7 +6,7 @@ class Exercise extends Model {};
 // Define each table row attributes with data validation
 Exercise.init(
   {
-    id: {
+    exercise_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
