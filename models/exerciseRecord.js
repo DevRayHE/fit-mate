@@ -6,11 +6,16 @@ class ExerciseRecord extends Model {}
 // Define each table row attributes with data validation
 ExerciseRecord.init(
   {
-    id: {
+    exercise_record_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     // minutes
     duration: {
@@ -31,14 +36,14 @@ ExerciseRecord.init(
       type: DataTypes.INTEGER,
       references: {
         model: "user",
-        key: "id",
+        key: "user_id",
       },
     },
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "exercise",
-        key: "id",
+        key: "exercise_id",
       },
     },
   },

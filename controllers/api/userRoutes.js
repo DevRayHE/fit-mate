@@ -4,8 +4,6 @@ const withAuth = require("../../utils/auth");
 
 // Route to get a user data with ID
 
-// Route to edit/Update a user data with ID
-
 // Create new user route
 router.post("/", async (req, res) => {
 	
@@ -20,7 +18,7 @@ router.post("/", async (req, res) => {
 		});
 
 		req.session.save(() => {
-			req.session.user_id = userData.id;
+			req.session.user_id = userData.user_id;
 			req.session.email = userData.email;
 			req.session.logged_in = true;
 
@@ -29,24 +27,9 @@ router.post("/", async (req, res) => {
 	} catch (err) {
 		console.log(err);
 	}
-	// User.create({
-	// 	first_name: req.body.firstName,
-	// 	last_name: req.body.lastName,
-	// 	email: req.body.email,
-	// 	password: req.body.password,
-	// 	age: req.body.age,
-	// 	weight: req.body.weight,
-
-	// }).then((userData) => {
-	// 	req.session.save(() => {
-	// 		req.session.user_id = userData.id;
-	// 		req.session.email = userData.email;
-	// 		req.session.logged_in = true;
-	// 		res.json(userData);
-	// 	});
-	// });
 });
 
+// Route to edit/Update a user data with ID
 // Route to update user info
 router.put("/:id", (req, res) => {
 	User.update({
@@ -59,7 +42,7 @@ router.put("/:id", (req, res) => {
 
 	}).then((userData) => {
 		req.session.save(() => {
-			req.session.user_id = userData.id;
+			req.session.user_id = userData.user_id;
 			req.session.email = userData.email;
 			req.session.logged_in = true;
       
@@ -89,7 +72,7 @@ router.post("/login", (req, res) => {
 			return;
 		}
 		req.session.save(() => {
-			req.session.user_id = userData.id;
+			req.session.user_id = userData.user_id;
 			req.session.email = userData.email;
 			req.session.logged_in = true;
       

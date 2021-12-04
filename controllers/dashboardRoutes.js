@@ -7,16 +7,23 @@ router.get("/", withAuth, async (req, res) => {
 
 	try {
 		const userData = await User.findOne({
-			where: { id: req.session.user_id },
+			where: { user_id: req.session.user_id },
 		});
 
-		console.log(userData);
+		const exerciseRecordData = await ExerciseRecord.findAll({
+			where: { user_id: req.session.user_id},
+		});
+
+		//seralize data
 		const userRecord = userData.get({ plain: true });
-		console.log(userRecord);
+		// console.log(exerciseRecordData);
+		const exerciseRecord = exerciseRecordData.map((record) => record.get({ plan: true}));
+		// console.log(exerciseRecordData);
 
 		res.render("dashboard", {
 			logged_in: req.session.logged_in,
 			...userRecord,
+			...exerciseRecord
 		});
 	} catch (err) {
 		console.log(err);
