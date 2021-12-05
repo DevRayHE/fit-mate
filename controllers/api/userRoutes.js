@@ -67,7 +67,7 @@ router.put("/", withAuth, (req, res) => {
 });
 
 // Login route
-router.post("/login", withAuth, (req, res) => {
+router.post("/login", (req, res) => {
 	User.findOne({
 		where: {
 			email: req.body.email,
@@ -80,6 +80,7 @@ router.post("/login", withAuth, (req, res) => {
 			return;
 		}
 		const validPassword = userData.checkPassword(req.body.password);
+		console.log(validPassword);
 		if (!validPassword) {
 			res.status(400).json({
 				message: "Incorrect Password",
