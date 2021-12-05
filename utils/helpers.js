@@ -6,6 +6,7 @@ module.exports = {
   },
 
   fromat_date_today_YMD: () => {
+    // Format today's date as YYYY-MM-DD
     return new Date().toLocaleDateString('en-CA');
   }
 };

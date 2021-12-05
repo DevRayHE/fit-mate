@@ -45,14 +45,14 @@ const editFormHandler = async (event) => {
 
   // Get the current logged in user id
   const id = event.target.getAttribute('data-id');
-  console.log("ID from attribute target: " + id);
+  // console.log("ID from attribute target: " + id);
 
   const first_name = document.querySelector("#first-name-edit").value.trim();
   const last_name = document.querySelector("#last-name-edit").value.trim();
   const weight = document.querySelector("#weight-edit").value.trim();
   const age = document.querySelector("#age-edit").value.trim();
 
-  console.log(first_name, last_name, weight, age)
+  // console.log(first_name, last_name, weight, age)
 
   // Calling the user put route to update user record.
   if (first_name && last_name && age && weight) {
@@ -74,7 +74,6 @@ const editFormHandler = async (event) => {
 
 // Select the element on the form
 const signUpForm = document.querySelector(".signup-form");
-// const editBtn = document.querySelector(".edit-btn");
 const editProfileForm = document.querySelector(".edit-profile-form");
 
 // Add event listener to the elements

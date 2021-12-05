@@ -20,17 +20,18 @@
             </a>
             </p>
             <nav class=" d-flex justify-content-around pe-5">
-                <!-- Conditionally render login or logout links -->
-                {{#if logged_in}}
+                
+                {{!-- {{#if logged_in}} --}}
                 <div class=" d-flex px-2">
                     <a class="btn btn-primary" href="/dashboard">DASHBOARD</a>
                 </div>
                 <div class=" d-flex px-2">
                     <a class="btn btn-primary" href="/leaderboard">LEADERBOARD</a>
                 </div>
-                {{/if}}
+                {{!-- {{/if}} --}}
 
                 <div class="d-flex px-2">
+                    <!-- Conditionally render login or logout links -->
                     {{#if logged_in}}
                     <button class="btn btn-primary" id="logout">LOGOUT</button>
                     {{else}}
@@ -45,7 +46,7 @@
             <!-- Render the sub layout -->
             {{{ body }}}
         </main>
-        <footer class="bg-primary bg-opacity-50 p-5 fixed-bottom" style="width: 100%;">
+        <footer class="bg-primary bg-opacity-50 p-5 " style="width: 100%;">
             <div class="container container-fluid">
                 <div class="row">
                     <p class="copyright-text">
