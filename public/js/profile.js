@@ -6,12 +6,18 @@ const signupFormHandler = async (event) => {
   const lastName = document.querySelector("#last-name-signup").value.trim();
   const email = document.querySelector("#email-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
+  const passwordConfirmation = document.querySelector("#password-signup-confirm").value.trim();
   const age = document.querySelector("#age-signup").value.trim();
   const weight = document.querySelector("#weight-signup").value.trim();
 
   console.log(firstName, lastName, email, password, weight, age);
 
-  // if (firstName && lastName && email && password && age && weight) {
+  if (password !== passwordConfirmation) {
+    alert('Input password did not match!');
+    document.location.replace(`/signup`);
+  }
+
+  if (firstName && lastName && email && password && age && weight) {
     try {
       const response = await fetch('/api/users', {
         method: 'POST',
@@ -28,9 +34,9 @@ const signupFormHandler = async (event) => {
     } catch (err) {
       console.log(err);
     };
-  // } else {
-  //   alert('Please complete all required filed.');
-  // }
+  } else {
+    alert('Please complete all required filed.');
+  }
 };
 
 // handle event to display edit current user profile info form
