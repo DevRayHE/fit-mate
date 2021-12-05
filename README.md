@@ -46,7 +46,7 @@ User can add the the type of exercises, duration and keep a track of the activit
 
 ## Contributors
 
-*[Ray Hel](https://github.com/DevRayHe)* <br>
+*[Ray He](https://github.com/DevRayHe)* <br>
 *[Kash Patel](https://github.com/kashpateltech)* <br>
 *[ETTA Ho](https://github.com/Etta0311)* <br>
 *The Univserity of Sydney | Trilogy Education Services* <br>
