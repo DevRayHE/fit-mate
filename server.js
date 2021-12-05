@@ -18,7 +18,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
 
   secret: "Super secret secret",
-   cookie: {
+  cookie: {
     // session expires in 30 minutes idle time
     maxAge: 30 * 60 * 1000,
   },
@@ -35,7 +35,7 @@ app.use(session(sess));
 app.engine('handlebars', exphbs({
   layoutsDir: `${__dirname}/views/layouts`
 }));
-
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
