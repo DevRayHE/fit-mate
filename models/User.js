@@ -42,6 +42,7 @@ User.init(
     total_calories_burnt: {
       type: DataTypes.DECIMAL,
       allowNull: false,
+      defaultValue: 0,
       validate: {
         isDecimal: true,
       },

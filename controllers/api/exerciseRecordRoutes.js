@@ -41,7 +41,10 @@ router.get("/MET/:name/:type", withAuth, async (req, res) => {
 		console.log(exerciseRecord);
 		
 		if (exerciseRecord) {
-			res.status(200).json({ MET: exerciseRecord.MET, ID: exerciseRecord.exercise_id })
+			res.status(200).json({ 
+				MET: exerciseRecord.MET, 
+				ID: exerciseRecord.exercise_id,
+			})
 		}
 
 	} catch (err) {
@@ -54,7 +57,7 @@ router.get("/MET/:name/:type", withAuth, async (req, res) => {
 // Display the form to input a new exercise record
 router.get("/new", withAuth, async (req, res) => {
 
-	console.log("new clicked!!")
+	// console.log("new clicked!!")
 	res.render("exerciseNewForm");
 });
 

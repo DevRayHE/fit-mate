@@ -2,6 +2,7 @@
   <label for="new-comment bg-light">Add A New Exercise Record:</label>
   <div class="mb-3">
     <label for="exercisedate" class="form-label">EXERCISE DATE: </label>
+    {{!-- This is to limit the selection to previous date only --}}
     <input type="date" class="form-control" id="date" min="2014-05-11" max={{fromat_date_today_YMD}}>
   </div>
   <div class="mb-3">
