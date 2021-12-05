@@ -15,24 +15,24 @@
 <body>
     <div class="flex-column justify-space-around">
         <header class="display-flex justify-space-between align-center p-5 bg-primary bg-opacity-50">
-            <h1 class="text-center pb-3 text-white">
-                <i class="bi bi-brush"></i>
-                <a href="/" class="text-white">Fit-Mate</a>
-            </h1>
-            <nav class=" d-flex justify-content-around">
+            <p><a href="/">
+            <img src="/css/logo.png" class="rounded float-start">
+            </a>
+            </p>
+            <nav class=" d-flex justify-content-around pe-5">
                 <!-- Conditionally render login or logout links -->
                 {{#if logged_in}}
-                <div class=" d-flex justify-content-start">
-                    <a class="btn btn-primary" href="/dashboard">DASHBOARD</a> 
+                <div class=" d-flex px-2">
+                    <a class="btn btn-primary" href="/dashboard">DASHBOARD</a>
                 </div>
-                <div class=" d-flex justify-content-start">
+                <div class=" d-flex px-2">
                     <a class="btn btn-primary" href="/leaderboard">LEADERBOARD</a>
                 </div>
                 {{/if}}
 
-                <div class="d-flex justify-content-end">
+                <div class="d-flex px-2">
                     {{#if logged_in}}
-                    <button class="btn btn-primary" id="logout">LOGOUT</button> |
+                    <button class="btn btn-primary" id="logout">LOGOUT</button>
                     {{else}}
                     <a class="btn btn-primary" href="/login">LOGIN</a>
                     {{/if}}
@@ -45,7 +45,7 @@
             <!-- Render the sub layout -->
             {{{ body }}}
         </main>
-        <footer class="bg-primary bg-opacity-50 p-5" style="width: 100%;">
+        <footer class="bg-primary bg-opacity-50 p-5 fixed-bottom" style="width: 100%;">
             <div class="container container-fluid">
                 <div class="row">
                     <p class="copyright-text">

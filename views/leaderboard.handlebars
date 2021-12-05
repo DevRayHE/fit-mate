@@ -1,11 +1,13 @@
 <div>
     <h1 style="text-decoration: underline;"><i class="bi bi-list-ol"></i> LEADERBOARD</h1>
     <div class="row align-items-center">
-        <div class="col-3 p-2 d-grid gap-4">
-            <button class="btn btn-primary" type="submit">Sort by Calories Burnt</button>
-        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Sort by Calories Burnt</a>
+            </li>
+        </ul>
 
-{{!-- if sort by Calories Burnt 
+        {{!-- if sort by Calories Burnt
         <div class="col-8 border border-primary p-4" style="overflow: auto;">
             <div class="row g-0">
                 <div class="col-3">
@@ -19,21 +21,21 @@
                 </div>
             </div> --}}
             <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">RANK</th>
-            <th scope="col">NAME</th>
-            <th scope="col">Total Calories Burnt</th>
-        </tr>
-    </thead>
-    <tb>
-        {{#if rank}}
-        {{#each rank as |rank|}}
-        {{> rank-details}}
-        {{/each}}                
-    </tbody>
-    {{/if}}
-</table>
+                <thead>
+                    <tr>
+                        <th scope="col">RANK</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">Total Calories Burnt</th>
+                    </tr>
+                </thead>
+                <tb>
+                    {{#if rank}}
+                    {{#each rank as |rank|}}
+                    {{> rank-details}}
+                    {{/each}}
+                    </tbody>
+                    {{/if}}
+            </table>
         </div>
     </div>
 </div>
