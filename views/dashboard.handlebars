@@ -3,11 +3,12 @@
         <h3 style="text-decoration: underline;">USER PROFILE</h3>
         <div class="card text-center" style="height: 50vh;">
             <div class="card-body" style="line-height: 5;">
-                <h5 class="card-title"> {{first_name}} {{last_name}} </h5> </h5>
+                <h5 class="card-title"> {{first_name}} {{last_name}} </h5>
+                </h5>
                 <p class="card-text"> Weight: {{weight}} KG </p>
-                <p class="card-text"> Age: {{age}}  </p>
+                <p class="card-text"> Age: {{age}} </p>
                 <p class="card-text"> Email: {{email}} </p>
-    
+
                 <a href="/dashboard/edit" class="btn btn-primary">EDIT PROFILE</a>
             </div>
         </div>
@@ -39,14 +40,32 @@
             </div> --}}
 
             {{!-- render each exercise record detail from patial --}}
-            {{#if exerciseRecord}}
-                <section class="text-center">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Exercise Type</th>
+                        <th scope="col">Duration (mins)</th>
+                        <th scope="col">Calories Burnt (cal)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if exerciseRecord}}
+                    {{#each exerciseRecord as |record|}}
+                    {{> record-details}}
+                    {{/each}}
+                </tbody>
+                {{/if}}
+            </table>
+            {{!-- {{#if exerciseRecord}}
+            <section class="text-center">
                 {{#each exerciseRecord as |record|}}
                 {{> record-details}}
                 {{/each}}
-                </section>
-            {{/if}}
+            </section>
+            {{/if}} --}}
 
-        {{!-- </div> --}}
+            {{!--
+        </div> --}}
     </div>
 </div>
