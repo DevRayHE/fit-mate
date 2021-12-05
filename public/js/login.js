@@ -28,15 +28,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
-// handle event to display user signup form
-// const signupBtnHandler = () => {
-//   document.location.replace('/signup');
-// };
-
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
-// document
-// .querySelector('#signup-btn')
-// .addEventListener('click', signupBtnHandler);

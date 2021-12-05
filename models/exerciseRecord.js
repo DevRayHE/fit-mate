@@ -32,6 +32,17 @@ ExerciseRecord.init(
         isDecimal: true,
       },
     },
+    exercise_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    exercise_type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+      },
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

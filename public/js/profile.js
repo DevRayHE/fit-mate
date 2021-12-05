@@ -39,37 +39,26 @@ const signupFormHandler = async (event) => {
   }
 };
 
-// handle event to display edit current user profile info form
-// const editBtnHandler = async (event) => {
-//   event.preventDefault();
-
-//   const id = event.target.getAttribute('data-id');
-
-//   document.location.replace(`/dashboard/edit/${id}`);
-// };
-
 // Handle the event to edit a user's profile info
 const editFormHandler = async (event) => {
   event.preventDefault();
 
   // Get the current logged in user id
   const id = event.target.getAttribute('data-id');
-  console.log("ID from attribute target: " + id);
+  // console.log("ID from attribute target: " + id);
 
-  const firstName = document.querySelector("#first-name-edit").value.trim();
-  const lastName = document.querySelector("#last-name-edit").value.trim();
-  //const email = document.querySelector("#email-edit").value.trim();
-  //const password = document.querySelector("#password-edit").value.trim();
+  const first_name = document.querySelector("#first-name-edit").value.trim();
+  const last_name = document.querySelector("#last-name-edit").value.trim();
   const weight = document.querySelector("#weight-edit").value.trim();
   const age = document.querySelector("#age-edit").value.trim();
 
-  console.log(firstName, lastName, weight, age)
+  // console.log(first_name, last_name, weight, age)
 
   // Calling the user put route to update user record.
-  if (firstName && lastName && age && weight) {
-    const response = await fetch(`/api/users/${id}`, {
+  if (first_name && last_name && age && weight) {
+    const response = await fetch('/api/users', {
       method: 'PUT',
-      body: JSON.stringify({ firstName, lastName, age, weight }),
+      body: JSON.stringify({ first_name, last_name, age, weight }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -85,17 +74,12 @@ const editFormHandler = async (event) => {
 
 // Select the element on the form
 const signUpForm = document.querySelector(".signup-form");
-// const editBtn = document.querySelector(".edit-btn");
 const editProfileForm = document.querySelector(".edit-profile-form");
 
 // Add event listener to the elements
 if (signUpForm) {
   signUpForm.addEventListener("submit", signupFormHandler);
 };
-
-// if (editBtn) {
-//   editBtn.addEventListener("click", editBtnHandler);
-// };
 
 if (editProfileForm) {
   editProfileForm.addEventListener("submit", editFormHandler);
