@@ -3,23 +3,37 @@
     <div class="row align-items-center">
         <div class="col-3 p-2 d-grid gap-4">
             <button class="btn btn-primary" type="submit">Sort by Calories Burnt</button>
-            <button class="btn btn-primary" type="submit">Sort by Exercise Type</button>
         </div>
 
-{{!-- if sort by Calories Burnt --}}
+{{!-- if sort by Calories Burnt 
         <div class="col-8 border border-primary p-4" style="overflow: auto;">
             <div class="row g-0">
                 <div class="col-3">
                     <div class="border bg-light">RANK</div>
                 </div>
                 <div class="col-5">
-                    <div class="border bg-light">USERNAME</div>
+                    <div class="border bg-light">NAME</div>
                 </div>
                 <div class="col-4">
                     <div class="border bg-light">CALORIES BURNT</div>
                 </div>
-            </div>
+            </div> --}}
+            <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">RANK</th>
+            <th scope="col">NAME</th>
+            <th scope="col">Total Calories Burnt</th>
+        </tr>
+    </thead>
+    <tb>
+        {{#if rank}}
+        {{#each rank as |rank|}}
+        {{> rank-details}}
+        {{/each}}                
+    </tbody>
+    {{/if}}
+</table>
         </div>
-
     </div>
 </div>
