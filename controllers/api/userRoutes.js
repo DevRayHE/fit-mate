@@ -73,24 +73,6 @@ router.put("/", (req, res) => {
 	.catch((err) => res.json(err));
 });
 
-// Route to update user total calories count
-router.put("/calories/:calories", (req, res) => {
-
-	User.update(
-		{ 
-			total_calories_burnt: req.params.calories,
-		},
-		{
-			where: {
-				user_id: req.session.user_id,
-			}
-		})
-		.then((userData) => {
-		res.json(userData);
-	})
-	.catch((err) => res.json(err));
-});
-
 // Login route
 router.post("/login", (req, res) => {
 	User.findOne({

@@ -18,7 +18,7 @@ router.get("/", withAuth, async (req, res) => {
 		// Find all exercise record under current logged in user
 		const exerciseRecordData = await ExerciseRecord.findAll({
 			where: { user_id: user_id },
-			order: [[("date"), "DESC"]]
+			order: [["date", "DESC"]],
 		});
 
 		//seralize data
@@ -31,9 +31,9 @@ router.get("/", withAuth, async (req, res) => {
 		// const exerciseData = await Exercise.findOne({
 		// 	where: { exercise_id: exerciseRecord.exercise_id}
 		// });
-	// 	const exerciseData = exerciseRecordData.exercise.map((record) =>
-	// 	record.get({ plan: true })
-	// );
+		// 	const exerciseData = exerciseRecordData.exercise.map((record) =>
+		// 	record.get({ plan: true })
+		// );
 
 		// console.log("exercise_id: " + exerciseRecord.exercise_id);
 		// console.log("exerciseDat name and type: " + exerciseData);
@@ -64,12 +64,10 @@ router.get("/edit", withAuth, (req, res) => {
 		.then((userData) => {
 			if (userData) {
 				const userRecord = userData.get({ plain: true });
-				const editProfile = true;
 
 				res.render("editProfile", {
 					...userRecord,
 					logged_in: req.session.logged_in,
-					editProfile,
 				});
 			} else {
 				res.status(404).end();
