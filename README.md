@@ -3,6 +3,12 @@
 # FitMate
 ---
 
+## Demo Screenshots
+
+
+
+
+
 ## Description
 
 FitMate is an app for everyone who loves exercising. FitMate is a one-stop app to track your excercises and calories burnt daily. Losing weight isn't easy - we know. Study after study has confirmed the benefits of keeping track of the exercise activity you do. It's simple - the more consistently you track your exercises, the more likely you are to lose weight.  That's why every successful weight management program suggests that you keep an activity log. But recording all the exercises without the right tools can be tedious at best, or simply impossible at worst. Hence we developed FitMate.
@@ -48,7 +54,7 @@ User can add the the type of exercises, duration and keep a track of the activit
 ## License 
 
 MIT License
-Copyright (c) [2021] [FitMate]
+Copyright (c) [2021] [fit-mate]
 Permission is herby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limiation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject following coditions: 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. 
 
