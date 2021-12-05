@@ -44,87 +44,18 @@ router.get("/signup", async (req, res) => {
   res.render("signUp", { signUp });
 });
 
+// leaderboard route
+
 // Display the form to input a new exercise record
 router.get("/newexerciserecord", withAuth, (req, res) => {
 
-	console.log("new clicked!!")
-	res.render("exerciseNewForm");
+	console.log("new clicked!!");
+	res.render("exerciseNewForm", {
+    logged_in: req.session.logged_in
+  });
 });
 
 module.exports = router;
-
-// Comment the below block of conflict for now.
-// const { Exericse, User } = require('../models');
-// const withAuth = require('../utils/auth');
-
-// router.get('/', async (req, res) => {
-//   try {
-//     // Get all projects and JOIN with user data
-//     const exerciseData = await Exericse.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['first_name'],
-//         },
-//       ],
-//     });
-
-//     // Serialize data so the template can read it
-//     const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
-
-//     // Pass serialized data and session flag into template
-//     // render login page for now, to be changed to 'homepage'.
-//     res.render('login', { 
-//       exercises, 
-//       logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get('/project/:id', async (req, res) => {
-//   try {
-//     const projectData = await Project.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     const project = projectData.get({ plain: true });
-
-//     res.render('project', {
-//       ...project,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// Use withAuth middleware to prevent access to route
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Project }],
-//     });
-
-//     const user = userData.get({ plain: true });
-
-//     res.render('profile', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-
-// });
 
 
 
