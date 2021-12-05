@@ -2,7 +2,28 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// Route to get a user data with ID
+// Route to get a user data with logged in user's ID
+router.get("/", withAuth, async (req, res) => {
+
+	try {
+
+		const user_id = req.session.user_id;
+
+		const resData = User.findOne({
+			where: { user_id: user_id }
+		});
+
+		const userData = (await resData).get({ plan: true });
+
+		if (userData) {
+			res.status(200).json({ 
+				totalCalories: userData.total_calories_burnt, 
+			});
+		};
+	} catch (err) {
+		console.log(err);
+	};
+});
 
 // Create new user route
 router.post("/", async (req, res) => {
@@ -31,14 +52,33 @@ router.post("/", async (req, res) => {
 
 // Route to edit/Update a user data with ID
 // Route to update user info
-router.put("/:id", (req, res) => {
+router.put("/", (req, res) => {
 
 	User.update(
 		{ 
-			first_name: req.body.firstName,
-			last_name: req.body.lastName,
-			age: req.body.age,
-			weight: req.body.weight
+			// first_name: req.body.firstName,
+			// last_name: req.body.lastName,
+			// age: req.body.age,
+			// weight: req.body.weight
+			...req.body,
+		},
+		{
+			where: {
+				user_id: req.session.user_id,
+			}
+		})
+		.then((userData) => {
+		res.json(userData);
+	})
+	.catch((err) => res.json(err));
+});
+
+// Route to update user total calories count
+router.put("/calories/:calories", (req, res) => {
+
+	User.update(
+		{ 
+			total_calories_burnt: req.params.calories,
 		},
 		{
 			where: {

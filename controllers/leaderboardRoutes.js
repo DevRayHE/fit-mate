@@ -11,7 +11,7 @@ router.get("/", withAuth, (req, res) => {
       "first_name",
       "last_name", 
        //[sequelize.fn("SUM", sequelize.col("calories_burnt")), "calories"],
-       "total_calories_burnt"     
+      "total_calories_burnt"     
     ],
     order: [[("total_calories_burnt"), "DESC"]]
   })
