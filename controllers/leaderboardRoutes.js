@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Exercise, ExerciseRecord, User } = require("../models");
 const withAuth = require("../utils/auth");
+const sequelize = require("sequelize");
 
 // Get route to update leader borad with Top 5 or 10 users
 router.get("/", withAuth, (req, res) => {
