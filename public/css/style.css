@@ -16,7 +16,6 @@
 }
 
 footer {
-  
   margin-top: 40px;
 }
 
@@ -35,4 +34,20 @@ footer {
   left: 60%;
   background-color: #f8c471;
   border-radius: 25px;
+}
+
+
+table {
+  counter-reset: rowNumber;
+}
+
+table {counter-reset: no -1;}
+
+table tr {
+  counter-increment: rowNumber;
+}
+table tr td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 0.5em;
 }
