@@ -1,12 +1,11 @@
 const router = require("express").Router();
-const { Exercise, ExerciseRecord, User } = require("../models");
+const { ExerciseRecord, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Render the main dashboard for the req.loggedin user
 router.get("/", withAuth, async (req, res) => {
 	try {
 		const user_id = req.session.user_id;
-		// const user_id=3;
 		// console.log("dashboard homeroute user_id: " + user_id);
 
 		const userData = await User.findOne({
@@ -15,7 +14,7 @@ router.get("/", withAuth, async (req, res) => {
 
 		// console.log("dashboard homeroute user Data: " + userData);
 
-		// Find all exercise record under current logged in user
+		// Find all exercise record under current logged in user, sort by date in descending order
 		const exerciseRecordData = await ExerciseRecord.findAll({
 			where: { user_id: user_id },
 			order: [["date", "DESC"]],
@@ -27,22 +26,6 @@ router.get("/", withAuth, async (req, res) => {
 		const exerciseRecord = exerciseRecordData.map((record) =>
 			record.get({ plan: true })
 		);
-
-		// const exerciseData = await Exercise.findOne({
-		// 	where: { exercise_id: exerciseRecord.exercise_id}
-		// });
-		// 	const exerciseData = exerciseRecordData.exercise.map((record) =>
-		// 	record.get({ plan: true })
-		// );
-
-		// console.log("exercise_id: " + exerciseRecord.exercise_id);
-		// console.log("exerciseDat name and type: " + exerciseData);
-		// console.log(JSON.stringify(exerciseRecord.exercise));
-		// console.log(typeof(exerciseRecord));
-		// console.log(exerciseData);
-
-		// const loginStatus = req.session.logged_in;
-		// console.log("dashboard homeroute login status: " + loginStatus);
 
 		res.render("dashboard", {
 			logged_in: req.session.logged_in,

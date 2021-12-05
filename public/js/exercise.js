@@ -15,11 +15,6 @@ const newExerciseSubmitHandler = async (event) => {
   const exercise_type = exerciseDetail[0];
   const exercise_name = exerciseDetail[1];
 
-  // console.log(date);
-  // console.log(exercise_type);
-  // console.log(exercise_name);
-  // console.log(duration);
-
   try {
     const resExercise = await fetch(`/api/exercise/MET/${exercise_name}/${exercise_type}`, {
       method: 'GET',
@@ -35,23 +30,22 @@ const newExerciseSubmitHandler = async (event) => {
     const resData  = await resExercise.json();
     // console.log(resData);
     const resUser = await resUserJson.json();
-    let total_calories_burnt = resUser.totalCalories;
-
-    console.log("res json user data: " + resUser);
-
-    console.log("total Calories: " + total_calories_burnt);
+    // console.log("res json user data: " + resUser);
+    // console.log("total Calories: " + total_calories_burnt);
 
     const MET = resData.MET;
-
     const exercise_id = resData.ID;
+
     //logic to calculate calories_burnt:
     //formular: MET*weight in kg=calories/hour
     // Calculate the new exercises calories burnt based on Met and weight and duration
     const calories_burnt = MET * weight * (duration /60);
     // console.log(calories_burnt);
 
+    let total_calories_burnt = resUser.totalCalories;
     total_calories_burnt += calories_burnt;
 
+    // Update user total calories burnt
     if (total_calories_burnt) {
       const updateUserCalories = await fetch('/api/users/', {
         method: 'PUT',
@@ -60,7 +54,6 @@ const newExerciseSubmitHandler = async (event) => {
       });
   
       if (updateUserCalories.ok) {
-        // return to dashboard
         console.log("User total calories updated succesfully!");
       } else {
         alert("User total calories failed to update!");
@@ -82,17 +75,12 @@ const newExerciseSubmitHandler = async (event) => {
         alert("New exercise failed to create!");
       }
     };
-
   } catch (err) {
     console.log(err);
   };
-  
-
-  
 };
 
 const newExerciseForm = document.querySelector('.new-exercise-btn');
-
 const newExerciseSubmit = document.querySelector('.new-exercise-form');
 
 if (newExerciseForm) {
