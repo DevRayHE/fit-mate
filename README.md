@@ -51,7 +51,8 @@ User can add the the type of exercises, duration and keep a track of the activit
 *The Univserity of Sydney | Trilogy Education Services* <br>
 
 ## License 
-<img alt="GitHub License" src="https://img.shields.io/apm/l/vim-mode">  <img alt="GitHub Language Count" 
+<img alt="GitHub License" src="https://img.shields.io/apm/l/vim-mode">  
+
 MIT License
 Copyright (c) [2021] [fit-mate]
 Permission is herby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limiation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject following coditions: 
