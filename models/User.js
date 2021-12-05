@@ -39,6 +39,13 @@ User.init(
         isInt: true,
       },
     },
+    total_calories_burnt: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      validate: {
+        isDecimal: true,
+      },
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -4,6 +4,7 @@
     "last_name": "He",
     "weight": "65",
     "age": "28",
+    "total_calories_burnt": "1234",
     "email": "Ray@hotmail.com",
     "password": "password321"
   },
@@ -12,6 +13,7 @@
     "last_name": "Patel",
     "weight": "68",
     "age": "25",
+    "total_calories_burnt": "4321",
     "email": "Kash@gmail.com",
     "password": "password321"
   },
@@ -20,6 +22,7 @@
     "last_name": "Ho",
     "weight": "52",
     "age": "23",
+    "total_calories_burnt": "1134",
     "email": "Etta@aol.com",
     "password": "password321"
   }
