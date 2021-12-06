@@ -11,8 +11,9 @@
 	position: fixed;
 	top: 45%;
 	left: 60%;
-	background-color: #f8c471;
+	/* background-color: #f8c471; */
 	border-radius: 25px;
+	color: white;
 }
 
 footer {
@@ -28,12 +29,13 @@ footer {
 	height: 100vh;
 }
 
-.hptext {
-	position: fixed;
-	top: 45%;
-	left: 60%;
-	background-color: #f8c471;
+.hpp {
+	/* background-color: #f8c471; */
+	top: 26%;
+	left: 13%;
 	border-radius: 25px;
+	max-width: 800px;
+	width: 42vw;
 }
 
 a {
