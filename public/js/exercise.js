@@ -45,7 +45,7 @@ const newExerciseSubmitHandler = async (event) => {
     // console.log(calories_burnt);
 
     let total_calories_burnt = resUser.totalCalories;
-    total_calories_burnt += calories_burnt;
+    total_calories_burnt = parseInt(total_calories_burnt) + parseInt(calories_burnt);
 
     // Update user total calories burnt
     if (total_calories_burnt) {
