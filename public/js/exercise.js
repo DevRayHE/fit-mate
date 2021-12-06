@@ -38,8 +38,10 @@ const newExerciseSubmitHandler = async (event) => {
 
     //logic to calculate calories_burnt:
     //formular: MET*weight in kg=calories/hour
+    // Formular MET * 3.5 * (Body weight in kilograms) / 200 * minute
     // Calculate the new exercises calories burnt based on Met and weight and duration
-    const calories_burnt = MET * weight * (duration /60);
+    // const calories_burnt = MET * weight * (duration /60);
+    const calories_burnt = MET * 3.5 * weight /200 * duration;
     // console.log(calories_burnt);
 
     let total_calories_burnt = resUser.totalCalories;
