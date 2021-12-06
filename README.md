@@ -8,6 +8,7 @@
 
 ## Description
 
+Link to the [site](https://DevRayHE.github.io/fit-mate)
 FitMate is an app for everyone who loves exercising. FitMate is a one-stop app to track your excercises and calories burnt daily. Losing weight isn't easy - we know. Study after study has confirmed the benefits of keeping track of the exercise activity you do. It's simple - the more consistently you track your exercises, the more likely you are to lose weight. That's why every successful weight management program suggests that you keep an activity log. But recording all the exercises without the right tools can be tedious at best, or simply impossible at worst. Hence we developed FitMate.
 
 Link to the [Github repo](https://github.com/DevRayHE/fit-mate.git)
