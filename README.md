@@ -12,6 +12,7 @@ Link to the [site](https://DevRayHE.github.io/fit-mate)
 FitMate is an app for everyone who loves exercising. FitMate is a one-stop app to track your excercises and calories burnt daily. Losing weight isn't easy - we know. Study after study has confirmed the benefits of keeping track of the exercise activity you do. It's simple - the more consistently you track your exercises, the more likely you are to lose weight. That's why every successful weight management program suggests that you keep an activity log. But recording all the exercises without the right tools can be tedious at best, or simply impossible at worst. Hence we developed FitMate.
 
 Link to the [Github repo](https://github.com/DevRayHE/fit-mate.git)
+
 Link to the [Deployed site live on Heroku](https://morning-fortress-74236.herokuapp.com/)
 
 ---
@@ -63,12 +64,6 @@ THEN the details of the users is dispayed in a rank format dipalying sorted by t
 - ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 - ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 - ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
-- ![GitHub Version Control](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-- ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-- ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
-- ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-- ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-- ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 - ![GitHub Version Control](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 - Handlebars
 - MySql2
